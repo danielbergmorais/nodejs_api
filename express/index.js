@@ -1,11 +1,16 @@
-const express = require('express')
+import { openDb } from "./configDB.js"
+import express from "express"
+
 const app = express()
 const port = 3000
+
+app.use(express.json())
+openDb()
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
 app.listen(port, () => {
-  console.log(`app running in port ${port}`)
+  console.log(`App is running in port ${port}`)
 })
